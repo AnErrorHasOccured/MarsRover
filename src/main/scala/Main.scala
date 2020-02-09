@@ -1,9 +1,9 @@
 import Model.Spaceship
 
 object Main extends App {
-  val Lenght = 6
+  val Length = 6
   val Height = 3
 
-  var deltaOne = Spaceship(1, 1)
-  Drawer.Terrain(Lenght, Height, deltaOne)
+  val (deltaOne, obstacles) = Instanziator(Length, Height, 2).GetInstances()
+  Drawer.Terrain(Length, Height, deltaOne)
 }
