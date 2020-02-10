@@ -7,20 +7,36 @@ case class Instanziator(TerrainLength: Int, TerrainHeight: Int, ObstacleNumber: 
 
   def GetInstances(): (Spaceship, ListBuffer[Obstacle]) = {
     var success = false
-    val spaceship = Spaceship(Random.between(1, TerrainLength), Random.between(1, TerrainHeight))
     var obstacles = ListBuffer[Obstacle]()
+    val spaceship: Spaceship = GetSpaceship
 
     while (!success) {
       if (obstacles.length == ObstacleNumber) success = true
 
-      val xRandom = Random.between(1, TerrainLength)
-      val yRandom = Random.between(1, TerrainHeight)
-
-      if ((spaceship.x != xRandom || spaceship.y != yRandom)
-        && obstacles.forall(obstacle => obstacle.x != xRandom && obstacle.y != yRandom))
-        obstacles += Obstacle(xRandom, yRandom)
+      val obstacle = getObstacle(spaceship, obstacles)
+      if (obstacle != null)
+        obstacles += obstacle
     }
 
     (spaceship, obstacles)
+  }
+
+  private def GetSpaceship : Spaceship = {
+    val (xRandom, yRandom) = GetRandomCoordinate
+    Spaceship(xRandom, yRandom)
+  }
+
+  private def getObstacle(spaceship: Spaceship, obstacles: ListBuffer[Obstacle]): Obstacle = {
+    val (xRandom, yRandom) = GetRandomCoordinate
+
+    if ((spaceship.x != xRandom || spaceship.y != yRandom)
+      && obstacles.forall(obstacle => obstacle.x != xRandom || obstacle.y != yRandom))
+      return Obstacle(xRandom, yRandom)
+
+    null
+  }
+
+  private def GetRandomCoordinate: (Int, Int) = {
+    (Random.between(1, TerrainLength), Random.between(1, TerrainHeight))
   }
 }
