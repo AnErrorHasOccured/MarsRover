@@ -5,4 +5,8 @@ case class Spaceship(x: Int, y: Int) extends GameObject {
   val down = "↓"
   val right = "→"
   val left = "←"
+
+  override def getIcon: String = {
+    up
+  }
 }

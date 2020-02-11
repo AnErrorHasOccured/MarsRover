@@ -1,9 +1,10 @@
-import Model.{GameObject, Spaceship}
+import Model.{GameObject, Obstacle, Spaceship}
+
+import scala.collection.mutable.ListBuffer
 
 object Drawer {
   private val Roof = "____"
-  private val InitialRow = "|   "
-  private val MiddleRow = "| x "
+  private val RowPattern = "|   "
   private val EndRow = "|"
   private val BaseRow = "|___"
 
@@ -15,26 +16,30 @@ object Drawer {
     println(row + EndRow)
   }
 
-  def PrintObject(spaceship: GameObject, cells: Int): Unit = {
+  def PrintObject(gamesObjects: ListBuffer[GameObject], cells: Int, y : Int): Unit = {
     var row = ""
-    for (i <- 1 to cells)
-      if (spaceship.x == i)
-        row += MiddleRow.replace("x", "↑")
+
+    for (x <- 1 to cells) {
+      val gameToPrint = gamesObjects.find(obj => obj.x == x && obj.y == y )
+      if (gameToPrint.isDefined)
+        row += RowPattern.substring(0, 2) + gameToPrint.head.getIcon + RowPattern.substring(3)
       else
-        row += MiddleRow.replace("x", " ")
+        row += RowPattern
+    }
 
     println(row + EndRow)
   }
 
-  def Terrain(length: Int, height: Int, spaceship: Spaceship): Unit = {
-    println()
-    for (i <- 1 to height) {
-      PrintTerrainPart(InitialRow, length)
+  def Terrain(length: Int, height: Int, spaceship: GameObject, obstacles: ListBuffer[GameObject]): Unit = {
+    val gamesObjects = spaceship +: obstacles
 
-      if (spaceship.y == i)
-        PrintObject(spaceship, length)
+    for (y <- 1 to height) {
+      PrintTerrainPart(RowPattern, length)
+
+      if (gamesObjects.exists(_.y == y))
+        PrintObject(gamesObjects, length, y)
       else
-        PrintTerrainPart(InitialRow, length)
+        PrintTerrainPart(RowPattern, length)
 
       PrintTerrainPart(BaseRow, length)
     }
