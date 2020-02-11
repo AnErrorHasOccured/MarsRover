@@ -1,12 +1,32 @@
-# Simple Build Tool
-# http://www.scala-sbt.org/release/docs/Getting-Started/Directories.html#configuring-version-control
-
-dist/*
+# sbt
+# (may want to keep parts of 'project')
+bin/
+project/
 target/
-lib_managed/
-src_managed/
-project/boot/
-project/plugins/project/
+build/
+
+# eclipse
+build
+.classpath
+.project
+.settings
+.worksheet
+
+# intellij idea
+*.log
+*.iml
+*.ipr
+*.iws
+.idea
+
+# mac
+.DS_Store
+
+# other?
 .history
+.scala_dependencies
 .cache
-.lib/
+.cache-main
+
+#general
+*.class
