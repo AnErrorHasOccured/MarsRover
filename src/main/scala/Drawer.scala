@@ -30,9 +30,8 @@ object Drawer {
     println(row + EndRow)
   }
 
-  def Terrain(length: Int, height: Int, spaceship: GameObject, obstacles: ListBuffer[GameObject]): Unit = {
-    val gamesObjects = spaceship +: obstacles
-
+  def Terrain(length: Int, height: Int, gamesObjects: ListBuffer[GameObject]): Unit = {
+    println()
     for (y <- 1 to height) {
       PrintTerrainPart(RowPattern, length)
 
