@@ -1,7 +1,7 @@
 package Model
 
 trait GameObject {
-  val x: Int
-  val y: Int
+  var x: Int
+  var y: Int
   def getIcon : String
 }
