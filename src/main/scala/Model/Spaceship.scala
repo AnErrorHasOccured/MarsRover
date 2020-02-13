@@ -1,5 +1,7 @@
 package Model
 
+import scala.collection.mutable.ListBuffer
+
 case class Spaceship(override var x: Int, override var y: Int, terrainLength: Int, terrainHeight: Int) extends GameObject {
   val up = "↑"
   val down = "↓"
@@ -17,7 +19,11 @@ case class Spaceship(override var x: Int, override var y: Int, terrainLength: In
       case "l" => MoveLeft()
       case "u" => MoveUp()
       case "d" => MoveDown()
+      case _ => println("INVALID COMMAND!1!")
     }
+
+  def HasDuplicationCoordinates(obstacle: ListBuffer[GameObject]): Boolean =
+    obstacle.exists(a => a.x == x && a.y == y)
 
   private def MoveRight(): Unit = {
     if (currentIcon == right)

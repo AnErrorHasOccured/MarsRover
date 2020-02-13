@@ -11,7 +11,7 @@ case class Instanziator(TerrainLength: Int, TerrainHeight: Int, ObstacleNumber: 
     val spaceship = GetSpaceship
 
     while (!success) {
-      if (obstacles.length == ObstacleNumber) success = true
+      if (obstacles.length == ObstacleNumber - 1) success = true
 
       val obstacle = getObstacle(spaceship, obstacles)
       if (obstacle != null)

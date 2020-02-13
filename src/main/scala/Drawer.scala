@@ -29,7 +29,8 @@ object Drawer {
 
     for (x <- 1 to cells) {
       val gameToPrint = gamesObjects.find(obj => obj.x == x && obj.y == y)
-      if (gameToPrint.isDefined)
+
+      if (gameToPrint.nonEmpty)
         row += RowPattern.substring(0, 2) + gameToPrint.head.getIcon + RowPattern.substring(3)
       else
         row += RowPattern
@@ -42,12 +43,7 @@ object Drawer {
     PrintRoof(length)
     for (y <- 1 to height) {
       PrintTerrainPart(RowPattern, length)
-
-      if (gamesObjects.exists(_.y == y))
-        PrintObject(gamesObjects, length, y)
-      else
-        PrintTerrainPart(RowPattern, length)
-
+      PrintObject(gamesObjects, length, y)
       PrintTerrainPart(BaseRow, length)
     }
   }
