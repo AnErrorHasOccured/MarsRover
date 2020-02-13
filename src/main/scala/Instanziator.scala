@@ -13,7 +13,7 @@ case class Instanziator(TerrainLength: Int, TerrainHeight: Int, ObstacleNumber: 
     while (!success) {
       if (obstacles.length == ObstacleNumber - 1) success = true
 
-      val obstacle = getObstacle(spaceship, obstacles)
+      val obstacle = GetObstacle(spaceship, obstacles)
       if (obstacle != null)
         obstacles += obstacle
     }
@@ -26,7 +26,7 @@ case class Instanziator(TerrainLength: Int, TerrainHeight: Int, ObstacleNumber: 
     Spaceship(xRandom, yRandom, TerrainLength, TerrainHeight)
   }
 
-  private def getObstacle(spaceship: Spaceship, obstacles: ListBuffer[GameObject]): Obstacle = {
+  private def GetObstacle(spaceship: Spaceship, obstacles: ListBuffer[GameObject]): Obstacle = {
     val (xRandom, yRandom) = GetRandomCoordinate
 
     if ((spaceship.x != xRandom || spaceship.y != yRandom)
