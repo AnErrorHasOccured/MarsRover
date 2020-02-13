@@ -1,6 +1,6 @@
 package Model
 
-case class Obstacle(override var x: Int, override var y: Int) extends GameObject {
+case class Obstacle(override var position: Position) extends GameObject {
   override def getIcon: String = {
     "X"
   }

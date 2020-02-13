@@ -12,7 +12,7 @@ object Main extends App {
 
   try {
     while (true) {
-      if (spaceship.HasDuplicationCoordinates(obstacles))
+      if (spaceship.FindsGamesObjects(obstacles))
         throw BoomException()
 
       Drawer.Terrain(Length, Height, spaceship +: obstacles)

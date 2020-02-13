@@ -1,4 +1,4 @@
-import Model.GameObject
+import Model.{GameObject, Position}
 
 import scala.collection.mutable.ListBuffer
 
@@ -28,7 +28,8 @@ object Drawer {
     var row = ""
 
     for (x <- 1 to cells) {
-      val gameToPrint = gamesObjects.find(obj => obj.x == x && obj.y == y)
+      val actualPosition = Position(x, y)
+      val gameToPrint = gamesObjects.find(obj => obj.position == actualPosition )
 
       if (gameToPrint.nonEmpty)
         row += RowPattern.substring(0, 2) + gameToPrint.head.getIcon + RowPattern.substring(3)
