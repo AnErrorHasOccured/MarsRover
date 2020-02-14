@@ -2,6 +2,5 @@ package Model
 
 trait GameObject {
   var position: Position
-
-  def getIcon: String
+  var Icon: String
 }

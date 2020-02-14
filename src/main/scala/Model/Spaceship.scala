@@ -7,9 +7,9 @@ final case class Spaceship(override var position: Position, terrainLength: Int, 
   private val down = "↓"
   private val right = "→"
   private val left = "←"
-  private var currentIcon: String = up
+  var Icon: String = up
 
-  override def getIcon: String = currentIcon
+  private def setIcon(icon: String): Unit = Icon = icon
 
   def Move(command: String): Unit =
     command match {
@@ -20,46 +20,57 @@ final case class Spaceship(override var position: Position, terrainLength: Int, 
       case _ => println("INVALID COMMAND!1!")
     }
 
-  def FindsGamesObjects(obstacle: ListBuffer[GameObject]): Boolean =
-    obstacle.exists(a => a.position == position)
+  def isBoomWith(obstacle: ListBuffer[GameObject]): Boolean = obstacle.exists(a => a.position == position)
 
   private def MoveRight(): Unit = {
-    if (currentIcon == right)
-      position.x = position.x + 1
+    if (Icon == right)
+      moveToRight()
     else
-      currentIcon = right
+      setIcon(right)
 
-    if (position.x > terrainLength)
-      position.x = 1
+    def moveToRight(): Unit = {
+      position.x += 1
+      if (position.x > terrainLength)
+        position.x = 1
+    }
   }
 
   private def MoveLeft(): Unit = {
-    if (currentIcon == left)
-      position.x = position.x - 1
+    if (Icon == left)
+      moveToLeft()
     else
-      currentIcon = left
+      setIcon(left)
 
-    if (position.x <= 0)
-      position.x = terrainLength
+    def moveToLeft(): Unit = {
+      position.x -= 1
+      if (position.x <= 0)
+        position.x = terrainLength
+    }
   }
 
   private def MoveUp(): Unit = {
-    if (currentIcon == up)
-      position.y = position.y - 1
+    if (Icon == up)
+      moveToUp()
     else
-      currentIcon = up
+      setIcon(up)
 
-    if (position.y <= 0)
-      position.y = terrainHeight
+    def moveToUp(): Unit = {
+      position.y = position.y - 1
+      if (position.y <= 0)
+        position.y = terrainHeight
+    }
   }
 
   private def MoveDown(): Unit = {
-    if (currentIcon == down)
-      position.y = position.y + 1
+    if (Icon == down)
+      moveToDown()
     else
-      currentIcon = down
+      setIcon(down)
 
-    if (position.y > terrainHeight)
-      position.y = 1
+    def moveToDown(): Unit = {
+      position.y = position.y + 1
+      if (position.y > terrainHeight)
+        position.y = 1
+    }
   }
 }

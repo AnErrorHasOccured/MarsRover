@@ -5,17 +5,21 @@ import scala.util.Random
 
 final case class Instanziator(TerrainLength: Int, TerrainHeight: Int, ObstacleNumber: Int) {
 
-  def GetInstances: (Spaceship, ListBuffer[GameObject]) = {
+  def GetGamesObjects: (Spaceship, ListBuffer[GameObject]) = {
     var success = false
     var obstacles = ListBuffer[GameObject]()
     val spaceship = GetSpaceship
 
     while (!success) {
-      if (obstacles.length == ObstacleNumber - 1) success = true
-
       val obstacle = GetObstacle(spaceship, obstacles)
-      if (obstacle != null)
-        obstacles += obstacle
+
+      obstacle match {
+        case Some(o) => obstacles += o
+        case _ =>
+      }
+
+      if (obstacles.length == ObstacleNumber)
+        success = true
     }
 
     (spaceship, obstacles)
@@ -26,12 +30,12 @@ final case class Instanziator(TerrainLength: Int, TerrainHeight: Int, ObstacleNu
     Spaceship(randomPosition, TerrainLength, TerrainHeight)
   }
 
-  private def GetObstacle(spaceship: Spaceship, obstacles: ListBuffer[GameObject]): Obstacle = {
+  private def GetObstacle(spaceship: Spaceship, obstacles: ListBuffer[GameObject]): Option[Obstacle] = {
     val randomPosition = GetRandomCoordinate
 
     if (spaceship.position != randomPosition
       && obstacles.forall(obstacle => obstacle.position != randomPosition))
-      return Obstacle(randomPosition)
+      return Some(Obstacle(randomPosition))
 
     null
   }

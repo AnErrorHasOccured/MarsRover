@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="610fde1a-bc6f-48b4-9478-07cede4536f6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/scala/Model/Position.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/scala/Drawer.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/Drawer.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/scala/Instanziator.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/Instanziator.scala" afterDir="false" />
@@ -10,6 +9,14 @@
       <change beforePath="$PROJECT_DIR$/src/main/scala/Model/GameObject.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/Model/GameObject.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/scala/Model/Obstacle.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/Model/Obstacle.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/scala/Model/Spaceship.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/Model/Spaceship.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/scala/InstanziatorTests.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/scala/InstanziatorTests.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.13/classes/Drawer$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.13/classes/Drawer$.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.13/classes/Drawer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.13/classes/Drawer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.13/classes/Main$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.13/classes/Main$.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.13/classes/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.13/classes/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.13/classes/Model/GameObject.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.13/classes/Model/GameObject.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.13/classes/Model/Obstacle.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.13/classes/Model/Obstacle.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.13/classes/Model/Spaceship.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.13/classes/Model/Spaceship.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,10 +77,11 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="ScalaTest.InstanziatorTests">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="MarsRover" />
+      <option name="PROGRAM_PARAMETERS" value="6 3 3" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -128,10 +136,16 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Application.Main" />
+      <item itemvalue="Scala REPL.Scala REPL" />
+      <item itemvalue="ScalaTest.InstanziatorTests" />
+      <item itemvalue="ScalaTest.SetSpec" />
+    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main" />
         <item itemvalue="ScalaTest.InstanziatorTests" />
+        <item itemvalue="Application.Main" />
         <item itemvalue="Scala REPL.Scala REPL" />
         <item itemvalue="ScalaTest.InstanziatorTests" />
         <item itemvalue="ScalaTest.InstanziatorTests" />
@@ -185,10 +199,10 @@
       <screen x="1920" y="-91" width="1920" height="1040" />
     </state>
     <state x="2610" y="185" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog/0.0.1536.824/1920.-91.1920.1040@1920.-91.1920.1040" timestamp="1581323195083" />
-    <state x="223" y="68" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1581194540213">
+    <state x="223" y="68" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1581625507296">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="223" y="68" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1581194540213" />
+    <state x="223" y="68" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1581625507296" />
     <state x="583" y="328" width="378" height="170" key="#com.intellij.framework.addSupport.AddSupportForSingleFrameworkDialog" timestamp="1581194050684">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -206,30 +220,30 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="426" height="466" key="DebuggerActiveHint/0.0.1536.824@0.0.1536.824" timestamp="1581244949906" />
-    <state width="1493" height="311" key="GridCell.Tab.0.bottom" timestamp="1581617251536">
+    <state width="1493" height="269" key="GridCell.Tab.0.bottom" timestamp="1581625687873">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1878" height="322" key="GridCell.Tab.0.bottom/0.0.1536.824/-3840.-1093.1920.1040@-3840.-1093.1920.1040" timestamp="1581457552217" />
     <state width="1877" height="387" key="GridCell.Tab.0.bottom/0.0.1536.824/1920.-91.1920.1040@1920.-91.1920.1040" timestamp="1581610968094" />
-    <state width="1493" height="311" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1581617251536" />
-    <state width="1493" height="311" key="GridCell.Tab.0.center" timestamp="1581617251535">
+    <state width="1493" height="269" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1581625687873" />
+    <state width="1493" height="269" key="GridCell.Tab.0.center" timestamp="1581625687872">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1878" height="322" key="GridCell.Tab.0.center/0.0.1536.824/-3840.-1093.1920.1040@-3840.-1093.1920.1040" timestamp="1581457552217" />
     <state width="1877" height="387" key="GridCell.Tab.0.center/0.0.1536.824/1920.-91.1920.1040@1920.-91.1920.1040" timestamp="1581610968093" />
-    <state width="1493" height="311" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1581617251535" />
-    <state width="1493" height="311" key="GridCell.Tab.0.left" timestamp="1581617251535">
+    <state width="1493" height="269" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1581625687872" />
+    <state width="1493" height="269" key="GridCell.Tab.0.left" timestamp="1581625687872">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1878" height="322" key="GridCell.Tab.0.left/0.0.1536.824/-3840.-1093.1920.1040@-3840.-1093.1920.1040" timestamp="1581457552217" />
     <state width="1877" height="387" key="GridCell.Tab.0.left/0.0.1536.824/1920.-91.1920.1040@1920.-91.1920.1040" timestamp="1581610968093" />
-    <state width="1493" height="311" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1581617251535" />
-    <state width="1493" height="311" key="GridCell.Tab.0.right" timestamp="1581617251535">
+    <state width="1493" height="269" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1581625687872" />
+    <state width="1493" height="269" key="GridCell.Tab.0.right" timestamp="1581625687872">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1878" height="322" key="GridCell.Tab.0.right/0.0.1536.824/-3840.-1093.1920.1040@-3840.-1093.1920.1040" timestamp="1581457552217" />
     <state width="1877" height="387" key="GridCell.Tab.0.right/0.0.1536.824/1920.-91.1920.1040@1920.-91.1920.1040" timestamp="1581610968094" />
-    <state width="1493" height="311" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1581617251535" />
+    <state width="1493" height="269" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1581625687872" />
     <state width="1877" height="346" key="GridCell.Tab.1.bottom" timestamp="1581514532740">
       <screen x="1920" y="-91" width="1920" height="1040" />
     </state>
