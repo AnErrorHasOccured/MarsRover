@@ -1,10 +1,10 @@
-import Model.{GameObject, Position}
+import Model.{GameObject, Position, Terrain}
 
 import scala.collection.mutable.ListBuffer
 
 object Drawer {
 
-  private val Roof = "____"
+  val Roof = "____"
   private val RowPattern = "|   "
   private val EndRow = "|"
   private val BaseRow = "|___"
@@ -43,16 +43,16 @@ object Drawer {
     AddRow(row + EndRow)
   }
 
-  def Terrain(length: Int, height: Int, gamesObjects: ListBuffer[GameObject]): String = {
-    var terrain = ""
+  def Terrain(terrain: Terrain, gamesObjects: ListBuffer[GameObject]): String = {
+    var terrainString = ""
 
-    terrain += GetRoof(length)
-    for (y <- 1 to height) {
-      terrain += GetTerrainPart(RowPattern, length)
-      terrain += GetTerrainObject(gamesObjects, length, y)
-      terrain += GetTerrainPart(BaseRow, length)
+    terrainString += GetRoof(terrain.Length)
+    for (y <- 1 to terrain.Height) {
+      terrainString += GetTerrainPart(RowPattern, terrain.Length)
+      terrainString += GetTerrainObject(gamesObjects, terrain.Length, y)
+      terrainString += GetTerrainPart(BaseRow, terrain.Length)
     }
 
-    terrain
+    terrainString
   }
 }

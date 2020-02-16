@@ -1,9 +1,9 @@
-import Model.{GameObject, Obstacle, Position, Spaceship}
+import Model.{GameObject, Obstacle, Position, Spaceship, Terrain}
 
 import scala.collection.mutable.ListBuffer
 import scala.util.Random
 
-final case class Instanziator(TerrainLength: Int, TerrainHeight: Int, ObstacleNumber: Int) {
+final case class Instanziator(terrain: Terrain, ObstacleNumber: Int) {
 
   def GetGamesObjects: (Spaceship, ListBuffer[GameObject]) = {
     val spaceship = GetSpaceship
@@ -33,7 +33,7 @@ final case class Instanziator(TerrainLength: Int, TerrainHeight: Int, ObstacleNu
 
   private def GetSpaceship: Spaceship = {
     val randomPosition = GetRandomCoordinate
-    Spaceship(randomPosition, TerrainLength, TerrainHeight)
+    Spaceship(randomPosition, terrain)
   }
 
   private def GetObstacle(spaceship: Spaceship, obstacles: ListBuffer[GameObject]): Option[Obstacle] = {
@@ -47,6 +47,6 @@ final case class Instanziator(TerrainLength: Int, TerrainHeight: Int, ObstacleNu
   }
 
   private def GetRandomCoordinate: Position = {
-    Position(Random.between(1, TerrainLength + 1), Random.between(1, TerrainHeight + 1))
+    Position(Random.between(1, terrain.Length + 1), Random.between(1, terrain.Height + 1))
   }
 }

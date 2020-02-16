@@ -2,7 +2,7 @@ package Model
 
 import scala.collection.mutable.ListBuffer
 
-final case class Spaceship(override var position: Position, terrainLength: Int, terrainHeight: Int) extends GameObject {
+final case class Spaceship(override var position: Position, terrain: Terrain) extends GameObject {
   private val up = "↑"
   private val down = "↓"
   private val right = "→"
@@ -30,7 +30,7 @@ final case class Spaceship(override var position: Position, terrainLength: Int, 
 
     def moveToRight(): Unit = {
       position.x += 1
-      if (position.x > terrainLength)
+      if (position.x > terrain.Length)
         position.x = 1
     }
   }
@@ -44,7 +44,7 @@ final case class Spaceship(override var position: Position, terrainLength: Int, 
     def moveToLeft(): Unit = {
       position.x -= 1
       if (position.x <= 0)
-        position.x = terrainLength
+        position.x = terrain.Length
     }
   }
 
@@ -57,7 +57,7 @@ final case class Spaceship(override var position: Position, terrainLength: Int, 
     def moveToUp(): Unit = {
       position.y = position.y - 1
       if (position.y <= 0)
-        position.y = terrainHeight
+        position.y = terrain.Height
     }
   }
 
@@ -69,7 +69,7 @@ final case class Spaceship(override var position: Position, terrainLength: Int, 
 
     def moveToDown(): Unit = {
       position.y = position.y + 1
-      if (position.y > terrainHeight)
+      if (position.y > terrain.Height)
         position.y = 1
     }
   }
