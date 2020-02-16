@@ -9,7 +9,7 @@ object Drawer {
   private val EndRow = "|"
   private val BaseRow = "|___"
 
-  def AddRow(str: String): String = str + "\n"
+  private def AddRow(str: String): String = str + "\n"
 
   private def GetRoof(cells: Int): String = {
     var row = ""
@@ -27,7 +27,7 @@ object Drawer {
     AddRow(row + EndRow)
   }
 
-  private def GetObject(gamesObjects: ListBuffer[GameObject], cells: Int, y: Int): String = {
+  private def GetTerrainObject(gamesObjects: ListBuffer[GameObject], cells: Int, y: Int): String = {
     var row = ""
 
     for (x <- 1 to cells) {
@@ -49,7 +49,7 @@ object Drawer {
     terrain += GetRoof(length)
     for (y <- 1 to height) {
       terrain += GetTerrainPart(RowPattern, length)
-      terrain += GetObject(gamesObjects, length, y)
+      terrain += GetTerrainObject(gamesObjects, length, y)
       terrain += GetTerrainPart(BaseRow, length)
     }
 

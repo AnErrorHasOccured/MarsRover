@@ -6,9 +6,15 @@ import scala.util.Random
 final case class Instanziator(TerrainLength: Int, TerrainHeight: Int, ObstacleNumber: Int) {
 
   def GetGamesObjects: (Spaceship, ListBuffer[GameObject]) = {
+    val spaceship = GetSpaceship
+    val obstacles = GetListObstacle(spaceship)
+
+    (spaceship, obstacles)
+  }
+
+  private def GetListObstacle(spaceship: Spaceship) : ListBuffer[GameObject] = {
     var success = false
     var obstacles = ListBuffer[GameObject]()
-    val spaceship = GetSpaceship
 
     while (!success) {
       val obstacle = GetObstacle(spaceship, obstacles)
@@ -22,7 +28,7 @@ final case class Instanziator(TerrainLength: Int, TerrainHeight: Int, ObstacleNu
         success = true
     }
 
-    (spaceship, obstacles)
+    obstacles
   }
 
   private def GetSpaceship: Spaceship = {
