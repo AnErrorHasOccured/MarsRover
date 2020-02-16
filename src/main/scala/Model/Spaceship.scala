@@ -2,7 +2,7 @@ package Model
 
 import scala.collection.mutable.ListBuffer
 
-final case class Spaceship(override var position: Position, terrain: Terrain) extends GameObject {
+final case class Spaceship(override var position: Position, private val terrain: Terrain) extends GameObject {
   private val up = "↑"
   private val down = "↓"
   private val right = "→"

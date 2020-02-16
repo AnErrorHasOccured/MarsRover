@@ -7,15 +7,15 @@ import scala.io.StdIn
 object Main extends App {
   val TerrainLength = args(0).toInt
   val TerrainHeight = args(1).toInt
-  val Obstacles = args(2).toInt
-
-  val terrain = Terrain(TerrainLength, TerrainHeight)
-  val (spaceship, obstacles) = Instanziator(terrain, Obstacles).GetGamesObjects
-  val gamesObjects = spaceship +: obstacles
-
-  PrintInfo()
+  val ObstaclesNumber = args(2).toInt
 
   try {
+    val terrain = Terrain(TerrainLength, TerrainHeight)
+    val (spaceship, obstacles) = Instanziator(terrain, ObstaclesNumber).GetGamesObjects
+    val gamesObjects = spaceship +: obstacles
+
+    PrintInfo()
+
     while (true) {
       val terrainString = Drawer.Terrain(terrain, gamesObjects)
       println(terrainString)

@@ -1,6 +1,5 @@
 import Model.{GameObject, Obstacle, Position, Spaceship, Terrain}
 import org.scalatest.flatspec.AnyFlatSpec
-
 import scala.collection.mutable.ListBuffer
 
 class DrawerTests extends AnyFlatSpec {

@@ -1,9 +1,12 @@
+import Exceptions.TooMuchObstaclesException
 import Model.{GameObject, Obstacle, Position, Spaceship, Terrain}
 
 import scala.collection.mutable.ListBuffer
 import scala.util.Random
 
-final case class Instanziator(terrain: Terrain, ObstacleNumber: Int) {
+final case class Instanziator(private val terrain: Terrain, private val obstacleNumber: Int) {
+
+  if (obstacleNumber >= (terrain.Length * terrain.Height)) throw TooMuchObstaclesException(terrain)
 
   def GetGamesObjects: (Spaceship, ListBuffer[GameObject]) = {
     val spaceship = GetSpaceship
@@ -12,7 +15,7 @@ final case class Instanziator(terrain: Terrain, ObstacleNumber: Int) {
     (spaceship, obstacles)
   }
 
-  private def GetListObstacle(spaceship: Spaceship) : ListBuffer[GameObject] = {
+  private def GetListObstacle(spaceship: Spaceship): ListBuffer[GameObject] = {
     var success = false
     var obstacles = ListBuffer[GameObject]()
 
@@ -24,7 +27,7 @@ final case class Instanziator(terrain: Terrain, ObstacleNumber: Int) {
         case _ =>
       }
 
-      if (obstacles.length == ObstacleNumber)
+      if (obstacles.length == obstacleNumber)
         success = true
     }
 
