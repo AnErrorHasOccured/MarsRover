@@ -5,11 +5,11 @@ import Console.{GREEN, RED, RESET, UNDERLINED, YELLOW_B}
 import scala.io.StdIn
 
 object Main extends App {
-  val TerrainLength = args(0).toInt
-  val TerrainHeight = args(1).toInt
-  val ObstaclesNumber = args(2).toInt
-
   try {
+    val TerrainLength = args(0).toInt
+    val TerrainHeight = args(1).toInt
+    val ObstaclesNumber = args(2).toInt
+
     val terrain = Terrain(TerrainLength, TerrainHeight)
     val (spaceship, obstacles) = Instanziator(terrain, ObstaclesNumber).GetGamesObjects
     val gamesObjects = spaceship +: obstacles
@@ -17,7 +17,7 @@ object Main extends App {
     PrintInfo()
 
     while (true) {
-      val terrainString = Drawer.Terrain(terrain, gamesObjects)
+      val terrainString = Drawer.GetTerrain(terrain, gamesObjects)
       println(terrainString)
 
       spaceship.Move(StdIn.readLine())

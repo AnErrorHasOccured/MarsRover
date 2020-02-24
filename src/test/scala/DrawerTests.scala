@@ -8,7 +8,7 @@ class DrawerTests extends AnyFlatSpec {
   val spaceship: Spaceship = Spaceship(Position(4, 3), terrain)
   val obstacles: ListBuffer[GameObject]  = ListBuffer(Obstacle(Position(2, 2)), Obstacle(Position(2, 3)), spaceship)
   val gamesObjects: ListBuffer[GameObject] = (spaceship +: obstacles)
-  val terrainString: String = Drawer.Terrain(terrain, gamesObjects)
+  val terrainString: String = Drawer.GetTerrain(terrain, gamesObjects)
 
   it should "Draw GamesObjects in the right position" in {
     gamesObjects.foreach(x => {

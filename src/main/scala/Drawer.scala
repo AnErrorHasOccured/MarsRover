@@ -43,7 +43,7 @@ object Drawer {
     AddRow(row + EndRow)
   }
 
-  def Terrain(terrain: Terrain, gamesObjects: ListBuffer[GameObject]): String = {
+  def GetTerrain(terrain: Terrain, gamesObjects: ListBuffer[GameObject]): String = {
     var terrainString = ""
 
     terrainString += GetRoof(terrain.Length)
